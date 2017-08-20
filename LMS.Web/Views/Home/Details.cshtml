@@ -1,0 +1,85 @@
+@model LMS.Web.ViewModels.BookViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CallNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CallNumber)
+        </dd>
+        <dt>
+            Status
+        </dt>
+        <dd>
+            @if (Model.Issue == null)
+            {
+                <span class="label label-success">AVAILABLE</span>
+            }
+            else
+            {
+                <span class="label label-danger">DUE @Model.Issue.ExpireDate.ToString("dd-MM-yyyy")</span>
+            }
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Authors)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Authors)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subjects)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subjects)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,12 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <h2>You are not logged in!</h2>
+}
+else
+{
+    <h2>Welcome to LMS Admin Panel</h2>
+}

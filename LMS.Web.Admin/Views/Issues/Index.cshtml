@@ -1,0 +1,98 @@
+@model IEnumerable<LMS.Web.Admin.ViewModels.IssueReturnViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Issue</h2>
+        <form asp-action="Issue">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Member Id</label>
+                    <div class="col-md-10">
+                        <input type="text" name="memberId" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Book Id</label>
+                    <div class="col-md-10">
+                        <input type="text" name="bookId" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Issue" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Return</h2>
+        <form asp-action="Return">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Book Id</label>
+                    <div class="col-md-10">
+                        <input type="text" name="bookId" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Return" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<h3>All Issued Books</h3>
+
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpireDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.BookTitle, "Details", "Books", new { id = item.BookId })
+                </td>
+                <td>
+                    @Html.ActionLink(item.MemberName, "Details", "Members", new { id = item.MemberId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

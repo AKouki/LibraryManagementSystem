@@ -1,0 +1,71 @@
+@model LMS.Core.Domain.Books.Book
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CallNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CallNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxIssueDays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxIssueDays)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

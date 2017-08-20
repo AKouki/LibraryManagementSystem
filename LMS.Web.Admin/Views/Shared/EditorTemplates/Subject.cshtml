@@ -1,0 +1,8 @@
+﻿@model LMS.Core.Domain.Books.Subject
+
+<div class="form-group">
+    <div class="col-md-10">
+        @Html.HiddenFor(model => model.SubjectId)
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+</div>
