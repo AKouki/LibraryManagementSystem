@@ -13,8 +13,8 @@ namespace LMS.Web.Admin.Controllers
     [Authorize]
     public class IssuesController : Controller
     {
-        IUnitOfWork _unitOfWork;
-        IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public IssuesController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;

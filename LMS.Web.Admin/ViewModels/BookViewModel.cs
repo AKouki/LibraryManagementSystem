@@ -1,5 +1,6 @@
 ﻿using LMS.Core.Domain.Books;
 using LMS.Core.Domain.Issues;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -42,7 +43,12 @@ namespace LMS.Web.Admin.ViewModels
         public int MaxIssueDays { get; set; }
 
         public ICollection<Author> Authors { get; set; }
+        public string[] SelectedAuthors { get; set; }
+        public IEnumerable<SelectListItem> AuthorsItems { get; set; }
+
         public ICollection<Subject> Subjects { get; set; }
+        public string[] SelectedSubjects { get; set; }
+        public IEnumerable<SelectListItem> SubjectsItems { get; set; }
 
         public Issue Issue { get; set; }
 

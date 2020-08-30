@@ -2,10 +2,11 @@
 using LMS.Core.Domain.Books;
 using LMS.Core.Domain.Issues;
 using LMS.Core.Domain.Members;
-using LMS.Data.Configuration;
+using LMS.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace LMS.Data
@@ -31,13 +32,13 @@ namespace LMS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            new BookConfiguration(modelBuilder.Entity<Book>());
-            new MemberConfiguration(modelBuilder.Entity<Member>());
-            new IssueConfiguration(modelBuilder.Entity<Issue>());
-            new BookAuthorConfiguration(modelBuilder.Entity<BookAuthor>());
-            new BookSubjectConfiguration(modelBuilder.Entity<BookSubject>());
-            new AuthorConfiguration(modelBuilder.Entity<Author>());
-            new SubjectConfiguration(modelBuilder.Entity<Subject>());
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=LMSDB;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
     }
 }

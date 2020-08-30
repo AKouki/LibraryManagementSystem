@@ -1,12 +1,8 @@
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    ViewData["Title"] = "Home Page";
 }
 
-@if (!User.Identity.IsAuthenticated)
-{
-    <h2>You are not logged in!</h2>
-}
-else
-{
-    <h2>Welcome to LMS Admin Panel</h2>
-}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

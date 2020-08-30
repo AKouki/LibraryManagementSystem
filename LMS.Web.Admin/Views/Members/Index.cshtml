@@ -7,7 +7,7 @@
 
 <h2>Members</h2>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
 <div class="clearfix"></div>
 <form asp-action="Index" method="get">
@@ -17,7 +17,7 @@
                 <input class="form-control" placeholder="Search Term" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
             </div>
             <div class="col-md-9">
-                <input type="submit" value="Search" class="btn btn-default" /> |
+                <input type="submit" value="Search" class="btn btn-primary" /> |
                 <a asp-action="Index">Back to Full List</a>
             </div>
         </p>

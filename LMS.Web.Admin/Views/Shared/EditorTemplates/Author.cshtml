@@ -1,8 +1,0 @@
-﻿@model LMS.Core.Domain.Books.Author
-
-<div class="form-group author">
-    <div class="col-md-10">
-        @Html.HiddenFor(model => model.AuthorId)
-        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-</div>

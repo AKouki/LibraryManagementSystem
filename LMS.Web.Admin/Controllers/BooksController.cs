@@ -9,14 +9,15 @@ using LMS.Core.Domain.Books;
 using LMS.Web.Admin.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LMS.Web.Admin.Controllers
 {
     [Authorize]
     public class BooksController : Controller
     {
-        IUnitOfWork _unitOfWork;
-        IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public BooksController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -56,7 +57,8 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Create()
         {
             var bookViewModel = new BookViewModel();
-            bookViewModel.Create(2);
+            bookViewModel.AuthorsItems = _unitOfWork.Authors.GetAll().Select(s => new SelectListItem() { Text = s.Name, Value = s.AuthorId.ToString() });
+            bookViewModel.SubjectsItems = _unitOfWork.Subjects.GetAll().Select(s => new SelectListItem() { Text = s.Name, Value = s.SubjectId.ToString() });
 
             return View(bookViewModel);
         }
@@ -72,37 +74,40 @@ namespace LMS.Web.Admin.Controllers
                 var bookAuthors = new List<BookAuthor>();
                 var bookSubjects = new List<BookSubject>();
 
-                foreach (var item in bookViewModel.Authors)
+                if (bookViewModel.SelectedAuthors != null)
                 {
-                    if (!string.IsNullOrEmpty(item.Name))
+                    foreach (var item in bookViewModel.SelectedAuthors)
                     {
-                        var author = _unitOfWork.Authors
-                            .Find(a => a.Name == item.Name)
-                            .FirstOrDefault();
+                        int authorId = int.Parse(item);
+                        var author = _unitOfWork.Authors.Get(authorId);
 
-                        bookAuthors.Add(new BookAuthor
+                        if (author != null)
                         {
-                            Book = book,
-                            Author = author == null ? item : author
-                        });
+                            bookAuthors.Add(new BookAuthor()
+                            {
+                                Book = book,
+                                Author = author
+                            });
+                        }
                     }
                 }
 
-                foreach (var item in bookViewModel.Subjects)
+                if (bookViewModel.SelectedSubjects != null)
                 {
-                    if (!string.IsNullOrEmpty(item.Name))
+                    foreach (var item in bookViewModel.SelectedSubjects)
                     {
-                        var subject = _unitOfWork.Subjects
-                        .Find(s => s.Name == item.Name)
-                        .FirstOrDefault();
+                        int subjectId = int.Parse(item);
+                        var subject = _unitOfWork.Subjects.Get(subjectId);
 
-                        bookSubjects.Add(new BookSubject
+                        if (subject != null)
                         {
-                            Book = book,
-                            Subject = subject == null ? item : subject
-                        });
+                            bookSubjects.Add(new BookSubject()
+                            {
+                                Book = book,
+                                Subject = subject
+                            });
+                        }
                     }
-
                 }
 
                 book.BookAuthors = bookAuthors;

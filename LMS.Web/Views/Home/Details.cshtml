@@ -1,4 +1,4 @@
-@model LMS.Web.ViewModels.BookViewModel
+﻿@model LMS.Web.ViewModels.BookViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -67,7 +67,10 @@
             @Html.DisplayNameFor(model => model.Authors)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Authors)
+            @foreach (var item in Model.Authors)
+            {
+                <span class="d-block">@item.Name</span>
+            }
         </dd>
     </dl>
     <hr />
@@ -76,7 +79,10 @@
             @Html.DisplayNameFor(model => model.Subjects)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Subjects)
+            @foreach (var item in Model.Subjects)
+            {
+                <span class="d-block">@item.Name</span>
+            }
         </dd>
     </dl>
 </div>

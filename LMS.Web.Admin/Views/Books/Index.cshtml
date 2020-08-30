@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
 <div class="clearfix"></div>
 <form asp-action="Index" method="get">
@@ -38,50 +38,57 @@
 <table class="table table-striped table-condensed">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.BookId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    Authors
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Publisher)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Language)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ISBN)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CallNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MaxIssueDays)
-                </th>
-                <th>
-                    Status
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                Authors
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CallNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxIssueDays)
+            </th>
+            <th>
+                Status
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.BookId)
             </td>
-            <td>
+            <td width="150">
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
+            <td width="120">
+                @foreach (var author in item.Authors)
+                {
+                    <span class="d-block">@author.Name</span>
+                }
+            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Authors)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Publisher)
@@ -114,6 +121,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
