@@ -14,8 +14,8 @@ namespace LMS.Web.Admin.Controllers
     [Authorize]
     public class AuthorsController : Controller
     {
-        IUnitOfWork _unitOfWork;
-        IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public AuthorsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;

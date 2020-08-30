@@ -14,8 +14,8 @@ namespace LMS.Web.Admin.Controllers
     [Authorize]
     public class MembersController : Controller
     {
-        IUnitOfWork _unitOfWork;
-        IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public MembersController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
