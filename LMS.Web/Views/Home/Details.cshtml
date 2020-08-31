@@ -10,75 +10,69 @@
 <div>
     <h4>@Model.Title</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="row">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Publisher)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Publisher)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Language)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Language)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ISBN)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ISBN)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CallNumber)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CallNumber)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
             Status
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @if (Model.Issue == null)
             {
-                <span class="label label-success">AVAILABLE</span>
+                <span class="badge badge-success">AVAILABLE</span>
             }
             else
             {
-                <span class="label label-danger">DUE @Model.Issue.ExpireDate.ToString("dd-MM-yyyy")</span>
+                <span class="badge badge-danger">DUE @Model.Issue.ExpireDate.ToString("dd-MM-yyyy")</span>
             }
         </dd>
-    </dl>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Authors)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @foreach (var item in Model.Authors)
             {
                 <span class="d-block">@item.Name</span>
             }
         </dd>
-    </dl>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Subjects)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @foreach (var item in Model.Subjects)
             {
                 <span class="d-block">@item.Name</span>
