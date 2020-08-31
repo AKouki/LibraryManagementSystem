@@ -13,8 +13,6 @@ namespace LMS.Web.Admin.ViewModels
         {
             this.Authors = new HashSet<Author>();
             this.Subjects = new HashSet<Subject>();
-
-            // Initial values
             this.Language = "English";
             this.MaxIssueDays = 10;
         }
@@ -23,6 +21,7 @@ namespace LMS.Web.Admin.ViewModels
         public int BookId { get; set; }
 
         [Required]
+        [StringLength(150, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -43,22 +42,13 @@ namespace LMS.Web.Admin.ViewModels
         public int MaxIssueDays { get; set; }
 
         public ICollection<Author> Authors { get; set; }
-        public string[] SelectedAuthors { get; set; }
+        public int[] SelectedAuthors { get; set; }
         public IEnumerable<SelectListItem> AuthorsItems { get; set; }
 
         public ICollection<Subject> Subjects { get; set; }
-        public string[] SelectedSubjects { get; set; }
+        public int[] SelectedSubjects { get; set; }
         public IEnumerable<SelectListItem> SubjectsItems { get; set; }
 
         public Issue Issue { get; set; }
-
-        internal void Create(int count = 1)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                this.Authors.Add(new Author());
-                this.Subjects.Add(new Subject());
-            }
-        }
     }
 }

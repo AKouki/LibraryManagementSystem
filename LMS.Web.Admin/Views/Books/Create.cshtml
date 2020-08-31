@@ -5,84 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h1>Create</h1>
+<h4>Book</h4>
+<hr />
 
 <form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>BookViewModel</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Title" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Publisher" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Publisher" class="form-control" />
-                <span asp-validation-for="Publisher" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Language" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Language" class="form-control" />
-                <span asp-validation-for="Language" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="ISBN" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="ISBN" class="form-control" />
-                <span asp-validation-for="ISBN" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CallNumber" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CallNumber" class="form-control" />
-                <span asp-validation-for="CallNumber" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="MaxIssueDays" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="MaxIssueDays" class="form-control" />
-                <span asp-validation-for="MaxIssueDays" class="text-danger"></span>
-            </div>
-        </div>
-        <hr />
-        <div class="form-group authors">
-            <label asp-for="SelectedAuthors" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="SelectedAuthors" asp-items="Model.AuthorsItems" class="custom-select"></select>
-                <span asp-validation-for="SelectedAuthors" class="text-danger"></span>
-            </div>
-        </div>
-        <hr />
-        <div class="form-group subjects">
-            <label asp-for="SelectedSubjects" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="SelectedSubjects" asp-items="Model.SubjectsItems" class="custom-select"></select>
-                <span asp-validation-for="SelectedSubjects" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Publisher" class="control-label"></label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Language" class="control-label"></label>
+        <input asp-for="Language" class="form-control" />
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN" class="control-label"></label>
+        <input asp-for="ISBN" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CallNumber" class="control-label"></label>
+        <input asp-for="CallNumber" class="form-control" />
+        <span asp-validation-for="CallNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxIssueDays" class="control-label"></label>
+        <input asp-for="MaxIssueDays" class="form-control" />
+        <span asp-validation-for="MaxIssueDays" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SelectedAuthors" class="control-label"></label>
+        <select asp-for="SelectedAuthors" asp-items="Model.AuthorsItems" class="form-control"></select>
+        <span asp-validation-for="SelectedAuthors" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SelectedSubjects" class="control-label"></label>
+        <select asp-for="SelectedSubjects" asp-items="Model.SubjectsItems" class="form-control"></select>
+        <span asp-validation-for="SelectedSubjects" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" />
 </form>
 
 <div>

@@ -7,47 +7,33 @@
 }
 
 <h2>Edit</h2>
+<h4>Member</h4>
+<hr />
 
 <form asp-action="Edit">
-    <div class="form-horizontal">
-        <h4>@Model.FirstName @Model.LastName</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input asp-for="MemberId" class="form-control" type="hidden" />
-        <div class="form-group">
-            <label asp-for="FirstName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="MemberType" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="MemberType" asp-items="@Html.GetEnumSelectList<MemberType>()" class="form-control"></select>
-                <span asp-validation-for="MemberType" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="MemberId" />
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="control-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MemberType" class="control-label"></label>
+        <select asp-for="MemberType" asp-items="@Html.GetEnumSelectList<MemberType>()" class="form-control" ></select>
+        <span asp-validation-for="MemberType" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
 </form>
 
 <div>

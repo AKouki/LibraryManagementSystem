@@ -44,7 +44,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Details(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var book = _unitOfWork.Books.GetSingleWithAuthorsSubjects((int)id);
             if (book == null)
@@ -76,37 +76,27 @@ namespace LMS.Web.Admin.Controllers
 
                 if (bookViewModel.SelectedAuthors != null)
                 {
-                    foreach (var item in bookViewModel.SelectedAuthors)
+                    var selectedAuthors = _unitOfWork.Authors.Find(a => bookViewModel.SelectedAuthors.Contains(a.AuthorId)).ToList();
+                    foreach (var item in selectedAuthors)
                     {
-                        int authorId = int.Parse(item);
-                        var author = _unitOfWork.Authors.Get(authorId);
-
-                        if (author != null)
+                        bookAuthors.Add(new BookAuthor()
                         {
-                            bookAuthors.Add(new BookAuthor()
-                            {
-                                Book = book,
-                                Author = author
-                            });
-                        }
+                            Book = book,
+                            Author = item
+                        });
                     }
                 }
 
                 if (bookViewModel.SelectedSubjects != null)
                 {
-                    foreach (var item in bookViewModel.SelectedSubjects)
+                    var selectedSubjects = _unitOfWork.Subjects.Find(a => bookViewModel.SelectedSubjects.Contains(a.SubjectId)).ToList();
+                    foreach (var item in selectedSubjects)
                     {
-                        int subjectId = int.Parse(item);
-                        var subject = _unitOfWork.Subjects.Get(subjectId);
-
-                        if (subject != null)
+                        bookSubjects.Add(new BookSubject()
                         {
-                            bookSubjects.Add(new BookSubject()
-                            {
-                                Book = book,
-                                Subject = subject
-                            });
-                        }
+                            Book = book,
+                            Subject = item
+                        });
                     }
                 }
 
@@ -124,7 +114,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var book = _unitOfWork.Books.Get((int)id);
             if (book == null)
@@ -167,6 +157,9 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var book = _unitOfWork.Books.Get(id);
+            if (book == null)
+                return NotFound();
+
             _unitOfWork.Books.Remove(book);
             _unitOfWork.Save();
 

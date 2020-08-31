@@ -79,7 +79,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var member = _unitOfWork.Members.Get((int)id);
             if (member == null)
@@ -96,7 +96,6 @@ namespace LMS.Web.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var member = _mapper.Map<MemberViewModel, Member>(memberViewModel);
-                
                 _unitOfWork.Members.Update(member);
                 _unitOfWork.Save();
 
@@ -123,6 +122,9 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var member = _unitOfWork.Members.Get(id);
+            if (member == null)
+                return NotFound();
+
             _unitOfWork.Members.Remove(member);
             _unitOfWork.Save();
 

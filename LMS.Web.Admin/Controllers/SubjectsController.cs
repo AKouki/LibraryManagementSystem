@@ -38,7 +38,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Details(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var subject = _unitOfWork.Subjects.GetSingleWithBooks((int)id);
             if (subject == null)
@@ -72,7 +72,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var subject = _unitOfWork.Subjects.Get((int)id);
             if (subject == null)
@@ -115,6 +115,9 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var subject = _unitOfWork.Subjects.Get(id);
+            if (subject == null)
+                return NotFound();
+
             _unitOfWork.Subjects.Remove(subject);
             _unitOfWork.Save();
 

@@ -24,7 +24,7 @@ namespace LMS.Web.Admin.ViewModels
         public string PhoneNumber { get; set; }
 
         [Required]
-        [DisplayName("Type")]
+        [DisplayName("Member Type")]
         public MemberType MemberType { get; set; }
 
         public ICollection<Issue> Issues { get; set; }

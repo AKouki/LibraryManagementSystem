@@ -74,7 +74,7 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null)
-                return BadRequest();
+                return NotFound();
 
             var author = _unitOfWork.Authors.Get((int)id);
             if (author == null)
@@ -117,6 +117,9 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var author = _unitOfWork.Authors.Get(id);
+            if (author == null)
+                return NotFound();
+
             _unitOfWork.Authors.Remove(author);
             _unitOfWork.Save();
 
