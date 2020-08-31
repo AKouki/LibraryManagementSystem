@@ -42,23 +42,24 @@ namespace LMS.Web.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Issue(int memberId, int bookId)
         {
-            var member = _unitOfWork.Members.Get(memberId);
-            var book = _unitOfWork.Books.Get(bookId);
-            //if (member == null || book == null)
-            //    return NotFound();
-            if (member == null || book == null)
-                return Content("This member or book does not exist!");
-
-            var newIssue = new Issue
+            if (IsAvailable(bookId))
             {
-                Member = member,
-                Book = book,
-                IssueDate = DateTime.Now,
-                ExpireDate = DateTime.Now.AddDays(book.MaxIssueDays)
-            };
+                var member = _unitOfWork.Members.Get(memberId);
+                var book = _unitOfWork.Books.Get(bookId);
+                if (member == null || book == null)
+                    return Content("This member or book does not exist!");
 
-            _unitOfWork.Issues.Add(newIssue);
-            _unitOfWork.Save();
+                var newIssue = new Issue
+                {
+                    Member = member,
+                    Book = book,
+                    IssueDate = DateTime.Now,
+                    ExpireDate = DateTime.Now.AddDays(book.MaxIssueDays)
+                };
+
+                _unitOfWork.Issues.Add(newIssue);
+                _unitOfWork.Save();
+            }
 
             return RedirectToAction("Index");
         }
@@ -68,8 +69,6 @@ namespace LMS.Web.Admin.Controllers
         public IActionResult Return(int bookId)
         {
             var issue = _unitOfWork.Issues.GetByBookId(bookId);
-            //if (issue == null)
-            //    return NotFound();
             if (issue == null)
                 return Content("This book is not issued to any member!");
 
@@ -77,6 +76,11 @@ namespace LMS.Web.Admin.Controllers
             _unitOfWork.Save();
 
             return RedirectToAction("Index");
+        }
+
+        private bool IsAvailable(int bookId)
+        {
+            return _unitOfWork.Issues.GetByBookId(bookId) == null;
         }
     }
 }
