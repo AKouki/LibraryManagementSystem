@@ -37,12 +37,9 @@ namespace LMS.Web.Admin.Controllers
             return View(authorsViewModel);
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-                return BadRequest();
-
-            var author = _unitOfWork.Authors.GetSingleWithBooks((int)id);
+            var author = _unitOfWork.Authors.GetSingleWithBooks(id);
             if (author == null)
                 return NotFound();
 
@@ -71,12 +68,9 @@ namespace LMS.Web.Admin.Controllers
             return View(authorViewModel);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var author = _unitOfWork.Authors.Get((int)id);
+            var author = _unitOfWork.Authors.Get(id);
             if (author == null)
                 return NotFound();
 
@@ -100,12 +94,9 @@ namespace LMS.Web.Admin.Controllers
             return View(authorViewModel);
         }
 
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var author = _unitOfWork.Authors.Get((int)id);
+            var author = _unitOfWork.Authors.Get(id);
             if (author == null)
                 return NotFound();
 

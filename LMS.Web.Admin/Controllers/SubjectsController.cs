@@ -35,12 +35,9 @@ namespace LMS.Web.Admin.Controllers
             return View(subjectsViewModel);
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var subject = _unitOfWork.Subjects.GetSingleWithBooks((int)id);
+            var subject = _unitOfWork.Subjects.GetSingleWithBooks(id);
             if (subject == null)
                 return NotFound();
 
@@ -69,12 +66,9 @@ namespace LMS.Web.Admin.Controllers
             return View(subjectViewModel);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var subject = _unitOfWork.Subjects.Get((int)id);
+            var subject = _unitOfWork.Subjects.Get(id);
             if (subject == null)
                 return NotFound();
 
@@ -98,12 +92,9 @@ namespace LMS.Web.Admin.Controllers
             return View(subjectViewModel);
         }
 
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var subject = _unitOfWork.Subjects.Get((int)id);
+            var subject = _unitOfWork.Subjects.Get(id);
             if (subject == null)
                 return NotFound();
 

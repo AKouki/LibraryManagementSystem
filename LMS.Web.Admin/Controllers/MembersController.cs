@@ -42,12 +42,9 @@ namespace LMS.Web.Admin.Controllers
             return View(membersViewModel);
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-                return BadRequest();
-
-            var member = _unitOfWork.Members.GetMemberWithIssuedBooks((int)id);
+            var member = _unitOfWork.Members.GetMemberWithIssuedBooks(id);
             if (member == null)
                 return NotFound();
 
@@ -76,12 +73,9 @@ namespace LMS.Web.Admin.Controllers
             return View(memberViewModel);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var member = _unitOfWork.Members.Get((int)id);
+            var member = _unitOfWork.Members.Get(id);
             if (member == null)
                 return NotFound();
 
@@ -105,12 +99,9 @@ namespace LMS.Web.Admin.Controllers
             return View(memberViewModel);
         }
 
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-                return NotFound();
-
-            var member = _unitOfWork.Members.Get((int)id);
+            var member = _unitOfWork.Members.Get(id);
             if (member == null)
                 return NotFound();
 
