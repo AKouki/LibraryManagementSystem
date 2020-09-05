@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Web", "LMS.Web\LMS.Web.csproj", "{DCE198C9-0CF1-47BF-8BFA-3EF526C3AEE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Web", "LMS.Web\LMS.Web.csproj", "{DCE198C9-0CF1-47BF-8BFA-3EF526C3AEE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Core", "LMS.Core\LMS.Core.csproj", "{0C353F72-2268-4645-8A75-9F6B983906FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Core", "LMS.Core\LMS.Core.csproj", "{0C353F72-2268-4645-8A75-9F6B983906FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{CBC68FBD-EAB2-4FF1-B639-273817382AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{CBC68FBD-EAB2-4FF1-B639-273817382AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Web.Admin", "LMS.Web.Admin\LMS.Web.Admin.csproj", "{43ABB3E7-F2F1-4554-9311-9EF665D5688C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Web.Admin", "LMS.Web.Admin\LMS.Web.Admin.csproj", "{43ABB3E7-F2F1-4554-9311-9EF665D5688C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Tests", "LMS.Tests\LMS.Tests.csproj", "{FE0B8CB9-AEE5-4F1D-A6CA-B6B13CC786F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{43ABB3E7-F2F1-4554-9311-9EF665D5688C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43ABB3E7-F2F1-4554-9311-9EF665D5688C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43ABB3E7-F2F1-4554-9311-9EF665D5688C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0B8CB9-AEE5-4F1D-A6CA-B6B13CC786F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0B8CB9-AEE5-4F1D-A6CA-B6B13CC786F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0B8CB9-AEE5-4F1D-A6CA-B6B13CC786F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0B8CB9-AEE5-4F1D-A6CA-B6B13CC786F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

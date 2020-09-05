@@ -42,24 +42,24 @@ namespace LMS.Web.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Issue(int memberId, int bookId)
         {
-            if (IsAvailable(bookId))
+            if (!IsAvailable(bookId))
+                return NotFound("This book is not available!");
+
+            var member = _unitOfWork.Members.Get(memberId);
+            var book = _unitOfWork.Books.Get(bookId);
+            if (member == null || book == null)
+                return NotFound("This member or this book does not exists!");
+
+            var newIssue = new Issue
             {
-                var member = _unitOfWork.Members.Get(memberId);
-                var book = _unitOfWork.Books.Get(bookId);
-                if (member == null || book == null)
-                    return Content("This member or book does not exist!");
+                Member = member,
+                Book = book,
+                IssueDate = DateTime.Now,
+                ExpireDate = DateTime.Now.AddDays(book.MaxIssueDays)
+            };
 
-                var newIssue = new Issue
-                {
-                    Member = member,
-                    Book = book,
-                    IssueDate = DateTime.Now,
-                    ExpireDate = DateTime.Now.AddDays(book.MaxIssueDays)
-                };
-
-                _unitOfWork.Issues.Add(newIssue);
-                _unitOfWork.Save();
-            }
+            _unitOfWork.Issues.Add(newIssue);
+            _unitOfWork.Save();
 
             return RedirectToAction("Index");
         }
@@ -70,7 +70,7 @@ namespace LMS.Web.Admin.Controllers
         {
             var issue = _unitOfWork.Issues.GetByBookId(bookId);
             if (issue == null)
-                return Content("This book is not issued to any member!");
+                return NotFound("This book is not valid or it is not issued!");
 
             _unitOfWork.Issues.Remove(issue);
             _unitOfWork.Save();
