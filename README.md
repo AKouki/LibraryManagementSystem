@@ -7,6 +7,6 @@ A Library Management System in .NET 7 using Generic Repository Pattern and UnitO
 * Set `LMS.Web.Admin` as StartUp Project
 * Open Package Manager Console and make sure that `Default Project` is `LMS.Web.Admin`
 * Run the following commands: <br />
-`update-database -c ApplicationDbContext` <br />
-`update-database -c LibraryContext`
+`update-database -Context ApplicationDbContext` <br />
+`update-database -Context LibraryContext`
 * That's all, you are ready!
