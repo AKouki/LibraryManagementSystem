@@ -1,15 +1,15 @@
 ﻿using LMS.Core.Domain.Issues;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace LMS.Data.Configurations
+namespace LMS.Data.Configuration
 {
     public class IssueConfiguration : IEntityTypeConfiguration<Issue>
     {
         public void Configure(EntityTypeBuilder<Issue> builder)
         {
             builder.ToTable("Issues");
+
             builder.HasKey(i => i.IssueId);
 
             builder.HasOne(b => b.Book)

@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
-using LMS.Core;
 using LMS.Core.Domain.Books;
 using LMS.Core.Repositories;
+using LMS.Core;
 using LMS.Web.Admin.Controllers;
-using LMS.Web.Admin.Mappings;
-using LMS.Web.Admin.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Xunit;
+using LMS.Web.Admin.Mappings;
+using LMS.Web.Admin.ViewModels;
 
 namespace LMS.Tests.Search
 {

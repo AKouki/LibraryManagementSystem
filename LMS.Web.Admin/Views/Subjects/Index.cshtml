@@ -1,8 +1,7 @@
-@model IEnumerable<LMS.Web.Admin.ViewModels.SubjectViewModel>
+﻿@model IEnumerable<SubjectViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="d-flex justify-content-between align-items-center">
@@ -10,15 +9,13 @@
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </div>
 
-<form asp-action="Index">
-    <div class="form-actions row no-color">
-            <div class="col-md-3">
-                <input class="form-control" placeholder="Subject Name" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
-            </div>
-            <div class="col-md-9">
-                <input type="submit" value="Search" class="btn btn-primary" /> |
-                <a asp-action="Index">Back to Full List</a>
-            </div>
+<form asp-action="Index" class="row g-2">
+    <div class="col-md-3">
+        <input class="form-control" placeholder="Subject Name" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
+    </div>
+    <div class="col-md-9">
+        <input type="submit" value="Search" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to Full List</a>
     </div>
 </form>
 

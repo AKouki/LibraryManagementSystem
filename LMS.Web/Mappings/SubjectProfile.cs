@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿#nullable disable
+using AutoMapper;
 using LMS.Core.Domain.Books;
 using LMS.Web.ViewModels;
-using System.Linq;
 
 namespace LMS.Web.Mappings
 {

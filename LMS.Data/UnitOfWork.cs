@@ -1,10 +1,6 @@
 ﻿using LMS.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using LMS.Core.Repositories;
 using LMS.Data.Repositories;
-using LMS.Core.Domain.Books;
 
 namespace LMS.Data
 {
@@ -35,8 +31,7 @@ namespace LMS.Data
 
         public void Dispose()
         {
-            Context.Dispose();
+            Context?.Dispose();
         }
-
     }
 }

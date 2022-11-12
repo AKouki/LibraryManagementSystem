@@ -1,16 +1,13 @@
-﻿using LMS.Core.Domain.Books;
+﻿#nullable disable
+using LMS.Core.Domain.Books;
 using LMS.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace LMS.Data.Repositories
 {
     public class BookRepository : Repository<Book>, IBookRepository
     {
-        public BookRepository(LibraryContext context) 
+        public BookRepository(LibraryContext context)
             : base(context)
         {
         }

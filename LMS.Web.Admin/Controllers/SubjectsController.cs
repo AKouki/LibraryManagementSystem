@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using LMS.Core;
+﻿#nullable disable
 using AutoMapper;
+using LMS.Core;
 using LMS.Core.Domain.Books;
 using LMS.Web.Admin.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.Web.Admin.Controllers
 {
@@ -14,6 +13,7 @@ namespace LMS.Web.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+
         public SubjectsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;

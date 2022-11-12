@@ -1,8 +1,4 @@
-﻿using LMS.Core.Domain.Books;
-using LMS.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LMS.Core.Repositories;
 
 namespace LMS.Core
 {

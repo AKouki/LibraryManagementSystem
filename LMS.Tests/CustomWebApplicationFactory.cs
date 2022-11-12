@@ -1,21 +1,12 @@
-﻿using LMS.Web.Admin;
-using LMS.Web.Admin.Data;
-using Microsoft.AspNetCore.Authentication;
+﻿using LMS.Web.Admin.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 
 namespace LMS.Tests
 {
-    public class CustomWebApplicationFactory : WebApplicationFactory<Startup>
+    public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
@@ -23,7 +14,7 @@ namespace LMS.Tests
             {
                 var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
 
-                services.Remove(descriptor);
+                services.Remove(descriptor!);
 
                 services.AddDbContext<ApplicationDbContext>(options =>
                 {

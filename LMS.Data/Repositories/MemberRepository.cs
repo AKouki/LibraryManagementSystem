@@ -1,16 +1,13 @@
-﻿using LMS.Core.Domain.Members;
+﻿#nullable disable
+using LMS.Core.Domain.Members;
 using LMS.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace LMS.Data.Repositories
 {
     public class MemberRepository : Repository<Member>, IMemberRepository
     {
-        public MemberRepository(LibraryContext context) 
+        public MemberRepository(LibraryContext context)
             : base(context)
         {
         }

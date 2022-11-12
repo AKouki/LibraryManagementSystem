@@ -1,10 +1,7 @@
-﻿using AutoMapper;
+﻿#nullable disable
+using AutoMapper;
 using LMS.Core.Domain.Books;
 using LMS.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LMS.Web.Mappings
 {

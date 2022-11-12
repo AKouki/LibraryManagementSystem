@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LMS.Core.Domain.Books;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using LMS.Core.Domain.Books;
 
-namespace LMS.Data.Configurations
+namespace LMS.Data.Configuration
 {
     public class BookConfiguration : IEntityTypeConfiguration<Book>
     {

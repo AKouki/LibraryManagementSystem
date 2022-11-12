@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LMS.Core.Domain.Members;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using LMS.Core.Domain.Members;
 
-namespace LMS.Data.Configurations
+namespace LMS.Data.Configuration
 {
     public class MemberConfiguration : IEntityTypeConfiguration<Member>
     {

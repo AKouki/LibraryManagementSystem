@@ -1,14 +1,13 @@
-﻿using LMS.Core.Domain.Issues;
+﻿#nullable disable
+using LMS.Core.Domain.Issues;
 using LMS.Core.Repositories;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace LMS.Data.Repositories
 {
     public class TransactionRepository : Repository<Issue>, ITransactionRepository
     {
-        public TransactionRepository(LibraryContext context) 
+        public TransactionRepository(LibraryContext context)
             : base(context)
         {
         }

@@ -1,8 +1,5 @@
 ﻿using LMS.Core.Domain.Books;
 using LMS.Core.Domain.Members;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LMS.Core.Domain.Issues
 {
@@ -13,10 +10,9 @@ namespace LMS.Core.Domain.Issues
         public DateTime ExpireDate { get; set; }
 
         public int MemberId { get; set; }
-        public Member Member { get; set; }
+        public Member? Member { get; set; }
 
         public int BookId { get; set; }
-        public Book Book { get; set; }
-
+        public Book? Book { get; set; }
     }
 }

@@ -1,8 +1,7 @@
-@model LMS.Web.Admin.ViewModels.MemberViewModel
+﻿@model MemberViewModel
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -46,10 +45,10 @@
         </dt>
         <dd class="col-sm-10">
             <ul class="list-unstyled">
-                @foreach (var item in Model.Issues)
+                @foreach (var item in Model.Issues ?? Enumerable.Empty<Issue>())
                 {
                     <li>
-                        <a asp-action="Details" asp-controller="Books" asp-route-id="@item.BookId">@item.Book.Title</a>
+                        <a asp-action="Details" asp-controller="Books" asp-route-id="@item.BookId">@item.Book?.Title</a>
                         <span class="badge badge-info">until @item.ExpireDate</span>
                     </li>
                 }

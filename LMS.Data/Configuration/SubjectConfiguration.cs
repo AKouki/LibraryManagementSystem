@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LMS.Data.Configurations
+namespace LMS.Data.Configuration
 {
     public class SubjectConfiguration : IEntityTypeConfiguration<Subject>
     {

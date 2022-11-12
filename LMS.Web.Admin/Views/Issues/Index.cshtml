@@ -1,33 +1,36 @@
-@model IEnumerable<LMS.Web.Admin.ViewModels.IssueReturnViewModel>
+﻿@model IEnumerable<IssueReturnViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
     <div class="col-md-6">
         <h2>Issue</h2>
-        <form asp-action="Issue">
-            <div class="form-group">
-                <label class="control-label">Member Id</label>
+        <form asp-action="Issue" class="row g-2">
+            <div class="col-12">
+                <label class="form-label">Member Id</label>
                 <input type="text" name="memberId" class="form-control" />
             </div>
-            <div class="form-group">
-                <label class="control-label">Book Id</label>
+            <div class="col-12">
+                <label class="form-label">Book Id</label>
                 <input type="text" name="bookId" class="form-control" />
             </div>
-            <input type="submit" value="Issue" class="btn btn-primary" />
+            <div class="col-12">
+                <input type="submit" value="Issue" class="btn btn-primary" />
+            </div>
         </form>
     </div>
     <div class="col-md-6">
         <h2>Return</h2>
-        <form asp-action="Return">
-            <div class="form-group">
-                <label class="control-label">Book Id</label>
+        <form asp-action="Return" class="row g-2">
+            <div class="col-12">
+                <label class="form-label">Book Id</label>
                 <input type="text" name="bookId" class="form-control" />
             </div>
-            <input type="submit" value="Return" class="btn btn-primary" />
+            <div class="col-12">
+                <input type="submit" value="Return" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>

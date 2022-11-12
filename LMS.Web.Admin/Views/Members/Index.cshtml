@@ -1,8 +1,7 @@
-@model IEnumerable<LMS.Web.Admin.ViewModels.MemberViewModel>
+﻿@model IEnumerable<MemberViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="d-flex justify-content-between align-items-center">
@@ -10,21 +9,19 @@
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </div>
 
-<form asp-action="Index">
-    <div class="form-row">
-        <div class="col-md-3">
-            <input class="form-control" placeholder="Search Term" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
-        </div>
-        <div class="col-md-9">
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-action="Index">Back to Full List</a>
-        </div>
-        <div class="col-md-12">
-            Find by:
-            <input type="radio" name="searchBy" value="firstname" checked /> FirstName
-            <input type="radio" name="searchBy" value="lastname" /> LastName
-            <input type="radio" name="searchBy" value="phone" /> Phone
-        </div>
+<form asp-action="Index" class="row g-2">
+    <div class="col-md-3">
+        <input class="form-control" placeholder="Search Term" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
+    </div>
+    <div class="col-md-9">
+        <input type="submit" value="Search" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to Full List</a>
+    </div>
+    <div class="col-md-12">
+        Find by:
+        <input type="radio" name="searchBy" value="firstname" checked /> FirstName
+        <input type="radio" name="searchBy" value="lastname" /> LastName
+        <input type="radio" name="searchBy" value="phone" /> Phone
     </div>
 </form>
 

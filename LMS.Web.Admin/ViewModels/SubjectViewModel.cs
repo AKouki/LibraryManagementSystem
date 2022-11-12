@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace LMS.Web.Admin.ViewModels
 {
@@ -10,8 +9,8 @@ namespace LMS.Web.Admin.ViewModels
         public int SubjectId { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public List<BookViewModel> Books { get; set; }
+        public List<BookViewModel> Books { get; set; } = new();
     }
 }

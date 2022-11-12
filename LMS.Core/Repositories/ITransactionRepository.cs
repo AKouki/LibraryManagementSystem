@@ -1,9 +1,4 @@
-﻿using LMS.Core.Domain.Books;
-using LMS.Core.Domain.Issues;
-using LMS.Core.Domain.Members;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LMS.Core.Domain.Issues;
 
 namespace LMS.Core.Repositories
 {

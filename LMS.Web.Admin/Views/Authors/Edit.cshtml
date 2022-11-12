@@ -1,26 +1,26 @@
-@model LMS.Web.Admin.ViewModels.AuthorViewModel
+﻿@model LMS.Web.Admin.ViewModels.AuthorViewModel
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Edit</h2>
 <h4>Author</h4>
 <hr />
 
-<form asp-action="Edit">
+<form asp-action="Edit" class="row g-2">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="AuthorId" />
-    <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
+    <div class="col-12">
+        <label asp-for="Name" class="form-label"></label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-    <input type="submit" value="Save" class="btn btn-primary" />
+    <div class="col-12">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
 </form>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

@@ -1,8 +1,7 @@
-@model IEnumerable<LMS.Web.Admin.ViewModels.BookViewModel>
+﻿@model IEnumerable<BookViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="d-flex justify-content-between align-items-center">
@@ -10,20 +9,18 @@
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </div>
 
-<form asp-action="Index">
-    <div class="form-row">
-        <div class="col-md-3">
-            <input class="form-control" placeholder="Search Book" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
-        </div>
-        <div class="col-md-9">
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-action="Index">Back to Full List</a>
-        </div>
-        <div class="col-md-12">
-            Find by:
-            <input type="radio" name="searchBy" value="title" checked /> Title
-            <input type="radio" name="searchBy" value="isbn" /> ISBN
-        </div>
+<form asp-action="Index" class="row g-2">
+    <div class="col-md-3">
+        <input class="form-control" placeholder="Search Book" type="text" name="searchTerm" value="@ViewData["currentFilter"]" />
+    </div>
+    <div class="col-md-9">
+        <input type="submit" value="Search" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to Full List</a>
+    </div>
+    <div class="col-md-12">
+        Find by:
+        <input type="radio" name="searchBy" value="title" checked /> Title
+        <input type="radio" name="searchBy" value="isbn" /> ISBN
     </div>
 </form>
 
@@ -73,7 +70,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td width="120">
-                    @foreach (var author in item.Authors)
+                    @foreach (var author in item.Authors ?? Enumerable.Empty<Author>())
                     {
                         <span class="d-block">@author.Name</span>
                     }
@@ -96,11 +93,11 @@
                 <td>
                     @if (item.Issue == null)
                     {
-                        <span class="badge badge-success">AVAILABLE</span>
+                        <span class="badge bg-success">AVAILABLE</span>
                     }
                     else
                     {
-                        <span class="badge badge-danger">DUE @item.Issue.ExpireDate.ToString("dd-MM-yyyy")</span>
+                        <span class="badge bg-danger">DUE @item.Issue.ExpireDate.ToString("dd-MM-yyyy")</span>
                     }
                 </td>
                 <td width="170">

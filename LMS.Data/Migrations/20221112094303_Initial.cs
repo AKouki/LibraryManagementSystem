@@ -1,19 +1,23 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace LMS.Data.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Authors",
                 columns: table => new
                 {
-                    AuthorId = table.Column<int>(nullable: false)
+                    AuthorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,15 +28,15 @@ namespace LMS.Data.Migrations
                 name: "Books",
                 columns: table => new
                 {
-                    BookId = table.Column<int>(nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Publisher = table.Column<string>(nullable: false),
-                    Language = table.Column<string>(nullable: true),
-                    ISBN = table.Column<string>(nullable: false),
-                    CallNumber = table.Column<string>(nullable: true),
-                    MaxIssueDays = table.Column<int>(nullable: false, defaultValue: 10)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Publisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Language = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ISBN = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CallNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxIssueDays = table.Column<int>(type: "int", nullable: false, defaultValue: 10)
                 },
                 constraints: table =>
                 {
@@ -43,12 +47,12 @@ namespace LMS.Data.Migrations
                 name: "Members",
                 columns: table => new
                 {
-                    MemberId = table.Column<int>(nullable: false)
+                    MemberId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    PhoneNumber = table.Column<string>(nullable: false),
-                    MemberType = table.Column<int>(nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MemberType = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,9 +63,9 @@ namespace LMS.Data.Migrations
                 name: "Subjects",
                 columns: table => new
                 {
-                    SubjectId = table.Column<int>(nullable: false)
+                    SubjectId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,8 +76,8 @@ namespace LMS.Data.Migrations
                 name: "BookAuthor",
                 columns: table => new
                 {
-                    BookId = table.Column<int>(nullable: false),
-                    AuthorId = table.Column<int>(nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,12 +100,12 @@ namespace LMS.Data.Migrations
                 name: "Issues",
                 columns: table => new
                 {
-                    IssueId = table.Column<int>(nullable: false)
+                    IssueId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IssueDate = table.Column<DateTime>(nullable: false),
-                    ExpireDate = table.Column<DateTime>(nullable: false),
-                    MemberId = table.Column<int>(nullable: false),
-                    BookId = table.Column<int>(nullable: false)
+                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ExpireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MemberId = table.Column<int>(type: "int", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,8 +128,8 @@ namespace LMS.Data.Migrations
                 name: "BookSubject",
                 columns: table => new
                 {
-                    BookId = table.Column<int>(nullable: false),
-                    SubjectId = table.Column<int>(nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    SubjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,6 +190,7 @@ namespace LMS.Data.Migrations
                 filter: "[Name] IS NOT NULL");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

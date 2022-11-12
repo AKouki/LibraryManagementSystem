@@ -1,7 +1,4 @@
 ﻿using LMS.Core.Domain.Books;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LMS.Core.Repositories
 {

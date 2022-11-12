@@ -1,15 +1,8 @@
-﻿using LMS.Web.Admin;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace LMS.Tests
 {
@@ -46,7 +39,7 @@ namespace LMS.Tests
 
             // Assert
             response.EnsureSuccessStatusCode();
-            Assert.Equal("text/html; charset=utf-8", response.Content.Headers.ContentType.ToString());
+            Assert.Equal("text/html; charset=utf-8", response.Content.Headers?.ContentType?.ToString());
         }
 
         [Theory]
@@ -69,7 +62,7 @@ namespace LMS.Tests
 
             // Assert
             Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
-            Assert.StartsWith("http://localhost/Identity/Account/Login", response.Headers.Location.OriginalString);
+            Assert.StartsWith("http://localhost/Identity/Account/Login", response.Headers?.Location?.OriginalString);
         }
     }
 }

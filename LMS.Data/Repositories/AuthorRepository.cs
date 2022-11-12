@@ -1,10 +1,7 @@
-﻿using LMS.Core.Domain.Books;
+﻿#nullable disable
+using LMS.Core.Domain.Books;
 using LMS.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LMS.Data.Repositories
 {

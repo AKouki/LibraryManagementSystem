@@ -1,8 +1,7 @@
 ﻿using LMS.Core.Domain.Issues;
 using LMS.Core.Domain.Members;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace LMS.Web.Admin.ViewModels
 {
@@ -13,20 +12,20 @@ namespace LMS.Web.Admin.ViewModels
 
         [Required]
         [DisplayName("First Name")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [Required]
         [DisplayName("Last Name")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [Required]
         [DisplayName("Phone")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [Required]
         [DisplayName("Member Type")]
         public MemberType MemberType { get; set; }
 
-        public ICollection<Issue> Issues { get; set; }
+        public ICollection<Issue>? Issues { get; set; }
     }
 }
