@@ -1,5 +1,5 @@
 # LibraryManagementSystem
-A Library Management System in ASP.NET Core 3.1 using Generic Repository Pattern and UnitOfWork
+A Library Management System in .NET 7 using Generic Repository Pattern and UnitOfWork
 
 ## Getting Started
 * Download the project
